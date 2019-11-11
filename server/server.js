@@ -3,7 +3,7 @@ const http = require('http');
 const socketIo = require('socket.io');
 const data = require('./db/data.json')
 // port from envirnoment var or default - 3001
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 4001;
 
 // setting up express
 const app = express();
@@ -14,8 +14,8 @@ const server = http.createServer(app);
 // adding socket IO middleware
 const io = socketIo(server);
 
-// constant for timer interval
-const time = 1000;
+// constant for timer interval ; 6000 equal one minute
+const time = 10000;
 
 // handle home request
 app.get('/' , function(req , res) {
@@ -27,10 +27,10 @@ io.on('connection' , socket => {
     console.log('Socket is connected ..');
 
     // listen on a new namespace called "incoming"
-    socket.on('incoming' , data => {
-        // here we broadcast it out
-        console.log(data , 'incoming data');
-    });
+    // socket.on('incoming' , data => {
+    //     // here we broadcast it out
+    //     console.log(data , 'incoming data');
+    // });
 
     // emiting the data every one minute
     setInterval(() => {
