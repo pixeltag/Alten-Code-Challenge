@@ -1,42 +1,32 @@
-import React, { Component } from 'react'
-import socketIOClient from "socket.io-client";
+import React , { useEffect } from 'react'
 import TracingComponent from './components/TracingComponent';
 import Header from './layout/Header';
 import Palette from './lib/Palette';
 import { ThemeProvider } from '@material-ui/styles';
-
+import { useSelector , useDispatch } from "react-redux";
+import { tracerConnect } from "./store/actions";
+import socketIOClient from "socket.io-client";
 
 const serverApi = process.env.SERVER_API || 'http://localhost:4001';
+const socket = socketIOClient(serverApi);
 
-class App extends Component {
-  constructor() {
-      super();
-      this.state = {
-        tracingData: {}
-      };
-    }
 
-componentDidMount() {
-  // connect to the socket
-  const socket = socketIOClient(serverApi);
-  // listening to the emitting on the "sendingData" namespace
-  socket.on("sendingData", data =>  {
-    console.log(data , 'Tracing Data from the Server Socket');
-    this.setState({tracingData: data})
-  });
-}
+function App() {
+  const { customers } = useSelector(state => state.tracerReducer);
+  console.log(customers)
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(tracerConnect());
+  } );
 
-  render() {
-    const { tracingData } = this.state || [];
-    return (
-      <div>
-        <ThemeProvider theme={Palette}>
-          <Header />
-          <TracingComponent {...tracingData} />
-        </ThemeProvider>
-      </div>
-    )
-  }
+  return (
+    <div>
+      <ThemeProvider theme={Palette}>
+        <Header />
+        <TracingComponent />
+      </ThemeProvider>
+    </div>
+  )
 }
 
 export default App;

@@ -32,6 +32,8 @@ io.on('connection' , socket => {
     //     console.log(data , 'incoming data');
     // });
 
+    // emit the initial data
+    socket.emit('sendingData' , data);
     // emiting the data every one minute
     setInterval(() => {
         socket.emit('sendingData' , data);
