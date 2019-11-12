@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import socketIOClient from "socket.io-client";
-import TracingData from './components/tracingGrid';
+import TracingComponent from './components/TracingComponent';
 import Header from './layout/Header';
 import Palette from './lib/Palette';
 import { ThemeProvider } from '@material-ui/styles';
@@ -32,7 +32,7 @@ componentDidMount() {
       <div>
         <ThemeProvider theme={Palette}>
           <Header />
-          <TracingData {...tracingData} />
+          <TracingComponent {...tracingData} />
         </ThemeProvider>
       </div>
     )

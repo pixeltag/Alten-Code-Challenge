@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+form {
+  .MuiSelect-icon {
+    color: rgb(204, 9, 65);
+  }
+  .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: rgb(204, 9, 65);
+    border-width: 2px;
+  }
+}
