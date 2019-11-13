@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { tracerConnect } from "../store/actions";
 import { combineCustomersWithVehicles, getVehiclesNum } from "../lib/utils";
 import DriveEtaIcon from "@material-ui/icons/DriveEta";
+import GridFilter from "./common/GridFilters";
 
 function TracingComponent(props) {
     const classes = useStyles();
@@ -32,6 +33,10 @@ function TracingComponent(props) {
             </Grid>
             <Grid item xs={12} md={6} className={classes.tracingContainer}>
                 <Grid container component="main" alignContent="flex-start" className={classes.root} spacing={4}>
+                    <Grid item xs={8}>
+                        <GridFilter customers={customers} />
+                    </Grid>
+                    <Grid item xs={4}></Grid>
                     <Grid item xs={12}>
                         <DriveEtaIcon className={classes.carIcon} />
                         <span className={classes.heading}>Found {numOfVehicles} Vehicles</span>
