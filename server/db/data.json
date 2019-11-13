@@ -1,81 +1,84 @@
 {
-    "users": [
-        {
-            "_id": 1,
-            "name": "Kalles Grustransporter AB",
-            "address": "Cementvägen 8, 111 11 Södertälje",
-            "vehicles" : [
-                {
-                    "_id": 1,
-                    "mark": "BMW",
-                    "model": "M3 2019",
-                    "vehicle_id": "YS2R4X20005399401",
-                    "reg_num": "ABC123",
-                    "status": false
-                },
-                {
-                    "_id": 2,
-                    "mark": "Aston Martin",
-                    "model": "DBX 2017",
-                    "vehicle_id": "VLUR4X20009093588",
-                    "reg_num": "DEF456",
-                    "status": false
-                },
-                {
-                    "_id": 3,
-                    "mark": "Toyota",
-                    "model": "68 2015",
-                    "vehicle_id": "VLUR4X20009048066",
-                    "reg_num": "GHI789",
-                    "status": false
-                }
-            ]
-        },
-        {
-            "_id": 2,
-            "name": "Johans Bulk AB",
-            "address": "Balkvägen 12, 222 22 Stockholm",
-            "vehicles" : [
-                {
-                    "_id": 1,
-                    "mark": "Mercedes Benz",
-                    "model": "S Class 2020",
-                    "vehicle_id": "YS2R4X20005388011",
-                    "reg_num": "JKL012",
-                    "status": false
-                },
-                {
-                    "_id": 2,
-                    "mark": "Volvo",
-                    "model": "XC40 2020",
-                    "vehicle_id": "YS2R4X20005387949",
-                    "reg_num": "MNO345",
-                    "status": false
-                }
-            ]
-        },
-        {
-            "_id": 3,
-            "name": "Haralds Värdetransporter AB",
-            "address": "Budgetvägen 1, 333 33 Uppsala",
-            "vehicles" : [
-                {
-                    "_id": 1,
-                    "mark": "Kia",
-                    "model": "Stinger 2020",
-                    "vehicle_id": "VLUR4X20009048066",
-                    "reg_num": "PQR678",
-                    "status": false
-                },
-                {
-                    "_id": 2,
-                    "mark": "Audi",
-                    "model": "A5 2018",
-                    "vehicle_id": "YS2R4X20005387055",
-                    "reg_num": "STU901",
-                    "status": false
-                }
-            ]
-        }
-    ]
+  "users": [
+    {
+      "_id": 1,
+      "name": "Kalles Grustransporter AB",
+      "address": "Cementvägen 8, 111 11 Södertälje"
+    },
+    {
+      "_id": 2,
+      "name": "Johans Bulk AB",
+      "address": "Balkvägen 12, 222 22 Stockholm"
+    },
+    {
+      "_id": 3,
+      "name": "Haralds Värdetransporter AB",
+      "address": "Budgetvägen 1, 333 33 Uppsala"
+    }
+  ],
+  "vehicles": [
+    {
+      "_id": 1,
+      "mark": "BMW",
+      "model": "M3 2019",
+      "vehicle_id": "YS2R4X20005399401",
+      "reg_num": "ABC123",
+      "user_id": 1,
+      "status": false
+    },
+    {
+      "_id": 2,
+      "mark": "Aston Martin",
+      "model": "DBX 2017",
+      "vehicle_id": "VLUR4X20009093588",
+      "reg_num": "DEF456",
+      "user_id": 1,
+      "status": false
+    },
+    {
+      "_id": 3,
+      "mark": "Toyota",
+      "model": "68 2015",
+      "vehicle_id": "VLUR4X20009048066",
+      "reg_num": "GHI789",
+      "user_id": 1,
+      "status": false
+    },
+    {
+      "_id": 1,
+      "mark": "Kia",
+      "model": "Stinger 2020",
+      "vehicle_id": "VLUR4X20009048066",
+      "reg_num": "PQR678",
+      "user_id": 3,
+      "status": false
+    },
+    {
+      "_id": 2,
+      "mark": "Audi",
+      "model": "A5 2018",
+      "vehicle_id": "YS2R4X20005387055",
+      "reg_num": "STU901",
+      "user_id": 3,
+      "status": false
+    },
+    {
+      "_id": 1,
+      "mark": "Mercedes Benz",
+      "model": "S Class 2020",
+      "vehicle_id": "YS2R4X20005388011",
+      "reg_num": "JKL012",
+      "user_id": 2,
+      "status": false
+    },
+    {
+      "_id": 2,
+      "mark": "Volvo",
+      "model": "XC40 2020",
+      "vehicle_id": "YS2R4X20005387949",
+      "reg_num": "MNO345",
+      "user_id": 2,
+      "status": false
+    }
+  ]
 }
