@@ -1,4 +1,4 @@
-import { combineCustomersWithVehicles } from "./utils";
+import { combineCustomersWithVehicles, getVehiclesNum } from "./utils";
 
 const customers = [
     {
@@ -45,18 +45,27 @@ const combinedArray = [
     }
 ];
 
-it("returns false if there are no arrays", () => {
+it("returns undefined if there are no arrays", () => {
     let result = combineCustomersWithVehicles([], []);
-    expect(result).toBe(false);
+    expect(result).toBe(undefined);
 });
 
-it("return false if there are no any parameters passed", () => {
+it("returns undefined if there are no any parameters passed", () => {
     let result = combineCustomersWithVehicles();
-    expect(result).toBe(false);
+    expect(result).toBe(undefined);
 });
 
-it("return combined object - the happy path", () => {
+it("returns combined object - the happy path", () => {
     let result = combineCustomersWithVehicles(customers, vehicles);
-    console.log(result);
     expect(result).toEqual(combinedArray);
+});
+
+it("returns num of vehicles if pass customers array", () => {
+    let result = getVehiclesNum(combinedArray);
+    expect(result).toBe(2);
+});
+
+it("returns 0 if there is no customers passed", () => {
+    let result = getVehiclesNum(customers);
+    expect(result).toBe(0);
 });

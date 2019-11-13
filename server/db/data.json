@@ -24,7 +24,7 @@
       "vehicle_id": "YS2R4X20005399401",
       "reg_num": "ABC123",
       "user_id": 1,
-      "status": false
+      "status": true
     },
     {
       "_id": 2,

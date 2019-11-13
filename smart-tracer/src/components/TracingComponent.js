@@ -6,7 +6,8 @@ import Typography from "@material-ui/core/Typography";
 import GridView from "./common/GridVIew";
 import { useSelector, useDispatch } from "react-redux";
 import { tracerConnect } from "../store/actions";
-import { combineCustomersWithVehicles } from "../lib/utils";
+import { combineCustomersWithVehicles, getVehiclesNum } from "../lib/utils";
+import DriveEtaIcon from "@material-ui/icons/DriveEta";
 
 function TracingComponent(props) {
     const classes = useStyles();
@@ -21,6 +22,7 @@ function TracingComponent(props) {
     const { vehicles } = useSelector(state => state.tracerReducer);
 
     const combined = combineCustomersWithVehicles(customers, vehicles);
+    const numOfVehicles = getVehiclesNum(combined);
 
     return (
         <Grid container component="main" className={classes.root}>
@@ -31,9 +33,8 @@ function TracingComponent(props) {
             <Grid item xs={12} md={6} className={classes.tracingContainer}>
                 <Grid container component="main" alignContent="flex-start" className={classes.root} spacing={4}>
                     <Grid item xs={12}>
-                        <Typography variant="h5" className={classes.heading} gutterBottom>
-                            Found 13 Vehicles
-                        </Typography>
+                        <DriveEtaIcon className={classes.carIcon} />
+                        <span className={classes.heading}>Found {numOfVehicles} Vehicles</span>
                     </Grid>
                     <Grid item xs={12}>
                         <GridView customers={combined} />
@@ -50,6 +51,18 @@ const useStyles = makeStyles(theme => ({
     },
     tracingContainer: {
         padding: theme.spacing(4)
+    },
+    heading: {
+        fontWeight: "600",
+        fontSize: "18px",
+        verticalAlign: "middle"
+    },
+    carIcon: {
+        marginRight: theme.spacing(1),
+        fill: theme.palette.colors.secondary,
+        verticalAlign: "middle",
+        width: "1.2em",
+        height: "1.2em"
     }
 }));
 

@@ -9,5 +9,18 @@ export function combineCustomersWithVehicles(customers, vehicles) {
         });
         return merged;
     }
-    return false;
+    return;
+}
+
+export function getVehiclesNum(customersData) {
+    if (customersData && customersData.length > 0) {
+        let vehicleNum = 0;
+        customersData.forEach(customer => {
+            if (customer.vehicles && customer.vehicles.length > 0) {
+                vehicleNum += customer.vehicles.length;
+            }
+        });
+        return vehicleNum;
+    }
+    return 0;
 }

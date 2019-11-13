@@ -8,16 +8,13 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
-const useStyles = makeStyles(theme => ({}));
-
 function TableView(props) {
-    const classes = useStyles();
     const { vehicles } = props || [];
 
     return (
         <div>
-            <Paper className={classes.root}>
-                <Table className={classes.table} aria-label="simple table">
+            <Paper>
+                <Table aria-label="simple table">
                     <TableHead>
                         <TableRow>
                             <TableCell>mark</TableCell>
@@ -36,7 +33,13 @@ function TableView(props) {
                                 <TableCell align="right">{vehicle.model}</TableCell>
                                 <TableCell align="right">{vehicle.vehicle_id}</TableCell>
                                 <TableCell align="right">{vehicle.reg_num}</TableCell>
-                                <TableCell align="right">{vehicle.status}</TableCell>
+                                <TableCell align="right">
+                                    {vehicle.status ? (
+                                        <span className="status status-avaliable">avaliable</span>
+                                    ) : (
+                                        <span className="status">Not Avaliable</span>
+                                    )}
+                                </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
