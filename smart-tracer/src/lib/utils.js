@@ -24,3 +24,19 @@ export function getVehiclesNum(customersData) {
     }
     return 0;
 }
+
+
+export function filterByCustomer(data , customers) {
+    if(customers && customers.length > 0) {
+        let filteredCustomers = data.filter(d => customers.includes(d._id))
+        return filteredCustomers;
+    }
+    return data;
+}
+
+export function filterByStatus(data , status) {
+    if(data && data.length > 0) {
+        let filteredVehicles = data.filter(d => d.status == status)
+        return filteredVehicles;
+    }
+}
