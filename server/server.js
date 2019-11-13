@@ -2,6 +2,7 @@ const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
 const data = require('./db/data.json')
+const statusChangesRandomly = require('./libs/utils')
 // port from envirnoment var or default - 3001
 const port = process.env.PORT || 4001;
 
@@ -36,7 +37,7 @@ io.on('connection' , socket => {
     socket.emit('sendingData' , data);
     // emiting the data every one minute
     setInterval(() => {
-        socket.emit('sendingData' , data);
+        socket.emit('sendingData' , statusChangesRandomly(data));
     } , time)
 
     // namespace 'disconnect' when a client disconnects
