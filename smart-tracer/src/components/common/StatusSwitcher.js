@@ -5,7 +5,7 @@ import Switch from '@material-ui/core/Switch';
 
 function StatusSwitcher(props) {
 
-    const [state, setState] = React.useState(true);
+    const [state, setState] = React.useState(false);
         const { switchLabel } = props || "Status";
       const handleChange = event => {
           let switcher = !state;

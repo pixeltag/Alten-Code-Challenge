@@ -47,6 +47,10 @@ function TracingComponent(props) {
         if(selectedCustomers.length > 0) {
             updatedCustomers = filterByCustomer(updatedCustomers , selectedCustomers);
         }
+
+        if(vehiclesStatus) {
+            updatedCustomers = filterByStatus(updatedCustomers , vehiclesStatus);
+        }
         // let status = filterByStatus(vehicles , vehiclesStatus);
 
         return updatedCustomers;
@@ -54,7 +58,6 @@ function TracingComponent(props) {
 
     const returnedData = customerFilter(combine);
 
-    console.log(returnedData , 'returnedData')
 
     const numOfVehicles = getVehiclesNum(returnedData);
 

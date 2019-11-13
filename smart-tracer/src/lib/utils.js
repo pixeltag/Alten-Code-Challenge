@@ -25,7 +25,7 @@ export function getVehiclesNum(customersData) {
     return 0;
 }
 
-
+// filter by customer IDs
 export function filterByCustomer(data , customers) {
     if(customers && customers.length > 0) {
         let filteredCustomers = data.filter(d => customers.includes(d._id))
@@ -34,9 +34,14 @@ export function filterByCustomer(data , customers) {
     return data;
 }
 
+// filter by status
 export function filterByStatus(data , status) {
     if(data && data.length > 0) {
-        let filteredVehicles = data.filter(d => d.status == status)
+        let filteredVehicles = data.filter(d =>  {
+           return d.vehicles =  d.vehicles.filter(v => {
+               return v.status === status;
+           })
+        });
         return filteredVehicles;
     }
 }
