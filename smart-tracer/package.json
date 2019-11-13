@@ -5,8 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.6.1",
     "@material-ui/icons": "^4.5.1",
-    "@progress/kendo-react-dropdowns": "^3.6.0",
-    "multiselect-react-dropdown": "^1.2.4",
+    "google-map-react": "^1.1.5",
     "node-sass": "^4.13.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",

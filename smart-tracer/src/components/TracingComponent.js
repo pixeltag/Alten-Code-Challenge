@@ -10,6 +10,7 @@ import { combineCustomersWithVehicles, getVehiclesNum , filterByCustomer , filte
 import DriveEtaIcon from "@material-ui/icons/DriveEta";
 import GridFilter from "./common/GridFilters";
 import StatusSwitcher from "./common/StatusSwitcher";
+import TracerMap from "./common/TracerMap";
 
 function TracingComponent(props) {
     const classes = useStyles();
@@ -52,13 +53,10 @@ function TracingComponent(props) {
             updatedCustomers = filterByStatus(updatedCustomers , vehiclesStatus);
         }
         // let status = filterByStatus(vehicles , vehiclesStatus);
-
         return updatedCustomers;
     }
 
     const returnedData = customerFilter(combine);
-
-
     const numOfVehicles = getVehiclesNum(returnedData);
 
     return (
@@ -68,7 +66,7 @@ function TracingComponent(props) {
                     <Grid container component="main" className={classes.root}>
                         <CssBaseline />
                                 <Grid item xs={12} md={6}>
-                                    map
+                                    <TracerMap />
                                 </Grid>
                                 <Grid item xs={12} md={6} className={classes.tracingContainer}>
                                     <Grid container component="main" alignContent="flex-start" className={classes.root} spacing={4}>

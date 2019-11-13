@@ -16,7 +16,7 @@ const server = http.createServer(app);
 const io = socketIo(server);
 
 // constant for timer interval ; 6000 equal one minute
-const time = 10000;
+const time = 1000;
 
 // handle home request
 app.get('/' , function(req , res) {
