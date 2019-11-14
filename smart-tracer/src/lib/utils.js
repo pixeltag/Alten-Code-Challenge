@@ -45,3 +45,15 @@ export function filterByStatus(data , status) {
         return filteredVehicles;
     }
 }
+
+// Isolate the customer with each his own car in sparated object
+export function isolateVehicles(data) {
+    if(data && data.length > 0) {
+        let returnData = [];
+        data.map(d =>  d.vehicles.forEach(v => {
+            returnData.push({ "name": d.name , "address": d.address , "vehicle" : v})
+        }));
+        return returnData;
+    }
+    return;
+}

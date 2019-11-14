@@ -66,7 +66,7 @@ function TracingComponent(props) {
                     <Grid container component="main" className={classes.root}>
                         <CssBaseline />
                                 <Grid item xs={12} md={6}>
-                                    <TracerMap />
+                                    <TracerMap customers={returnedData}/>
                                 </Grid>
                                 <Grid item xs={12} md={6} className={classes.tracingContainer}>
                                     <Grid container component="main" alignContent="flex-start" className={classes.root} spacing={4}>

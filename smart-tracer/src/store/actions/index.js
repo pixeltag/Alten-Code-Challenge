@@ -1,5 +1,5 @@
 import socketIOClient from "socket.io-client";
-const serverApi = process.env.SERVER_API || "http://localhost:4001";
+const serverApi = process.env.REACT_APP_SERVER_API || "http://localhost:4001";
 const socket = socketIOClient(serverApi);
 
 function updateCustomers(data) {

@@ -24,7 +24,9 @@
       "vehicle_id": "YS2R4X20005399401",
       "reg_num": "ABC123",
       "user_id": 1,
-      "status": true
+      "status": true,
+      "long": "18.068581",
+      "lat": "59.329323"
     },
     {
       "_id": 2,
@@ -33,7 +35,9 @@
       "vehicle_id": "VLUR4X20009093588",
       "reg_num": "DEF456",
       "user_id": 1,
-      "status": false
+      "status": false,
+      "long": "18.093941",
+      "lat": "59.340893"
     },
     {
       "_id": 3,
@@ -42,7 +46,9 @@
       "vehicle_id": "VLUR4X20009048066",
       "reg_num": "GHI789",
       "user_id": 1,
-      "status": false
+      "status": false,
+      "long": "18.015355",
+      "lat": "59.341769"
     },
     {
       "_id": 1,
@@ -51,7 +57,9 @@
       "vehicle_id": "VLUR4X20009048066",
       "reg_num": "PQR678",
       "user_id": 3,
-      "status": false
+      "status": false,
+      "long": "18.052074",
+      "lat": "59.318302"
     },
     {
       "_id": 2,
@@ -60,7 +68,9 @@
       "vehicle_id": "YS2R4X20005387055",
       "reg_num": "STU901",
       "user_id": 3,
-      "status": false
+      "status": false,
+      "long": "18.096000",
+      "lat": "59.325309"
     },
     {
       "_id": 1,
@@ -69,7 +79,9 @@
       "vehicle_id": "YS2R4X20005388011",
       "reg_num": "JKL012",
       "user_id": 2,
-      "status": false
+      "status": false,
+      "long": "18.118306",
+      "lat": "59.313221"
     },
     {
       "_id": 2,
@@ -78,7 +90,9 @@
       "vehicle_id": "YS2R4X20005387949",
       "reg_num": "MNO345",
       "user_id": 2,
-      "status": false
+      "status": false,
+      "long": "18.142671",
+      "lat": "59.332489"
     }
   ]
 }

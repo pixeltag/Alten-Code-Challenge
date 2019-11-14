@@ -1,27 +1,33 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react';
+import { isolateVehicles } from "../../lib/utils";
+import MapCard from './MapCard';
+
+const MAP_API = process.env.REACT_APP_MAP_API;
 
 const defaultProps = {
     center: {
-      lat: 59.95,
-      lng: 30.33
+      lat: 59.329323,
+      lng: 18.068581
     },
-    zoom: 11
+    zoom: 12
   };
 
-function TracerMap() {
+function TracerMap(props) {
+
+    const { customers } = props || [];
+
+    const mapData = isolateVehicles(customers);
     return (
-        <div style={{ height: '100vh', width: '100%' }}>
+        <div style={{ height: '95vh', width: '100%' }}>
             <GoogleMapReact
-            bootstrapURLKeys={{ key: 55555 }}
+            bootstrapURLKeys={{ key: MAP_API }}
             defaultCenter={defaultProps.center}
             defaultZoom={defaultProps.zoom}
             >
-            {/* <AnyReactComponent
-                lat={59.955413}
-                lng={30.337844}
-                text="My Marker"
-            /> */}
+                {
+                    mapData.map((card , index) => <MapCard lat={card.vehicle.lat} lng={card.vehicle.long} card={card} key={index} />)
+                }
             </GoogleMapReact>
         </div>
     )
