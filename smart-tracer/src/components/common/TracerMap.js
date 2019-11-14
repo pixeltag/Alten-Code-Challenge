@@ -7,10 +7,10 @@ const MAP_API = process.env.REACT_APP_MAP_API;
 
 const defaultProps = {
     center: {
-      lat: 59.329323,
-      lng: 18.068581
+      lat: 59.319323,
+      lng: 18.098581
     },
-    zoom: 12
+    zoom: 13
   };
 
 function TracerMap(props) {
@@ -19,14 +19,14 @@ function TracerMap(props) {
 
     const mapData = isolateVehicles(customers);
     return (
-        <div style={{ height: '95vh', width: '100%' }}>
+        <div style={{ height: "calc(100vh - 66px)", width: '100%' }}>
             <GoogleMapReact
             bootstrapURLKeys={{ key: MAP_API }}
             defaultCenter={defaultProps.center}
             defaultZoom={defaultProps.zoom}
             >
                 {
-                    mapData.map((card , index) => <MapCard lat={card.vehicle.lat} lng={card.vehicle.long} card={card} key={index} />)
+                    mapData.map((card , index) => card.vehicle.status ? <MapCard lat={card.vehicle.lat} lng={card.vehicle.long} card={card} key={index} /> : false)
                 }
             </GoogleMapReact>
         </div>

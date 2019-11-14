@@ -97,10 +97,12 @@ function TracingComponent(props) {
 
 const useStyles = makeStyles(theme => ({
     root: {
-        height: "100vh"
+        height: "calc(100vh - 66px)",
     },
     tracingContainer: {
-        padding: theme.spacing(4)
+        padding: theme.spacing(4),
+        height: "calc(100vh - 66px)",
+        overflowY: "auto"
     },
     heading: {
         fontWeight: "600",
