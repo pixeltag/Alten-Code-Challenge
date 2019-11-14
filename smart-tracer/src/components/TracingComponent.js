@@ -2,7 +2,6 @@ import React, { useEffect , useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Typography from "@material-ui/core/Typography";
 import GridView from "./common/GridVIew";
 import { useSelector, useDispatch } from "react-redux";
 import { tracerConnect } from "../store/actions";

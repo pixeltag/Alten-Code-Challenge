@@ -8,6 +8,7 @@ import img from "../../assets/svg/avatar.jpg";
 import DriveEtaIcon from "@material-ui/icons/DriveEta";
 import SnackbarContent from "@material-ui/core/SnackbarContent";
 import TableView from "./TableView";
+import PropTypes from 'prop-types'
 
 const useStyles = makeStyles(theme => ({
     customerContainer: {
@@ -56,9 +57,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function GridVIew(props) {
+
     const classes = useStyles();
     const { customers } = props || [];
-    console.log(props, "from grid");
     return (
         <div>
             {customers ? (
@@ -96,6 +97,30 @@ function GridVIew(props) {
             )}
         </div>
     );
+}
+
+
+GridVIew.propTypes = {
+    customers : PropTypes.arrayOf(
+        PropTypes.shape({
+            _id : PropTypes.number.isRequired,
+            name : PropTypes.string.isRequired,
+            address : PropTypes.string.isRequired,
+            vehicles : PropTypes.arrayOf(
+                PropTypes.shape({
+                    lat : PropTypes.string.isRequired,
+                    long : PropTypes.string.isRequired,
+                    mark : PropTypes.string.isRequired,
+                    model : PropTypes.string.isRequired,
+                    reg_num : PropTypes.string.isRequired,
+                    status : PropTypes.bool.isRequired,
+                    user_id : PropTypes.number.isRequired,
+                    vehicle_id : PropTypes.string.isRequired,
+                    _id : PropTypes.number.isRequired
+                })
+            )
+        })
+    )
 }
 
 export default GridVIew;

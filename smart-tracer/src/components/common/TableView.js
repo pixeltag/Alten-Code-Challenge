@@ -1,5 +1,4 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -9,6 +8,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
 function TableView(props) {
+
     const { vehicles } = props || [];
 
     return (
@@ -49,6 +49,20 @@ function TableView(props) {
     );
 }
 
-TableView.propTypes = {};
+TableView.propTypes = {
+    vehicles : PropTypes.arrayOf(
+        PropTypes.shape({
+            lat : PropTypes.string.isRequired,
+            long : PropTypes.string.isRequired,
+            mark : PropTypes.string.isRequired,
+            model : PropTypes.string.isRequired,
+            reg_num : PropTypes.string.isRequired,
+            status : PropTypes.bool.isRequired,
+            user_id : PropTypes.number.isRequired,
+            vehicle_id : PropTypes.string.isRequired,
+            _id : PropTypes.number.isRequired
+        })
+    )
+};
 
 export default TableView;

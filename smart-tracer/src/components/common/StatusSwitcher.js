@@ -2,6 +2,7 @@ import React from 'react'
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import PropTypes from 'prop-types'
 
 function StatusSwitcher(props) {
 
@@ -21,6 +22,11 @@ function StatusSwitcher(props) {
         />
     </FormControl>
     )
+}
+
+StatusSwitcher.propTypes = {
+  onSwitch : PropTypes.func.isRequired,
+  switchLabel : PropTypes.string.isRequired
 }
 
 export default StatusSwitcher

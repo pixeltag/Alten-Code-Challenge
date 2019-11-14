@@ -1,4 +1,4 @@
-import React , { useEffect } from 'react'
+import React from 'react'
 import TracingComponent from './components/TracingComponent';
 import Header from './layout/Header';
 import Palette from './lib/Palette';

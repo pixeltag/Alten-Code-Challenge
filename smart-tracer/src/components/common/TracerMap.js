@@ -2,6 +2,7 @@ import React from 'react'
 import GoogleMapReact from 'google-map-react';
 import { isolateVehicles } from "../../lib/utils";
 import MapCard from './MapCard';
+import PropTypes from 'prop-types'
 
 const MAP_API = process.env.REACT_APP_MAP_API;
 
@@ -16,7 +17,6 @@ const defaultProps = {
 function TracerMap(props) {
 
     const { customers } = props || [];
-
     const mapData = isolateVehicles(customers);
     return (
         <div style={{ height: "calc(100vh - 66px)", width: '100%' }}>
@@ -30,6 +30,29 @@ function TracerMap(props) {
                 }
             </GoogleMapReact>
         </div>
+    )
+}
+
+TracerMap.propTypes = {
+    customers : PropTypes.arrayOf(
+        PropTypes.shape({
+            _id : PropTypes.number.isRequired,
+            name : PropTypes.string.isRequired,
+            address : PropTypes.string.isRequired,
+            vehicles : PropTypes.arrayOf(
+                PropTypes.shape({
+                    lat : PropTypes.string.isRequired,
+                    long : PropTypes.string.isRequired,
+                    mark : PropTypes.string.isRequired,
+                    model : PropTypes.string.isRequired,
+                    reg_num : PropTypes.string.isRequired,
+                    status : PropTypes.bool.isRequired,
+                    user_id : PropTypes.number.isRequired,
+                    vehicle_id : PropTypes.string.isRequired,
+                    _id : PropTypes.number.isRequired
+                })
+            )
+        })
     )
 }
 

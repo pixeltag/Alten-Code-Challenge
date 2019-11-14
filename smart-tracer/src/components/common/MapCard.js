@@ -2,9 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
@@ -40,32 +38,22 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function MapCard(props) {
+
+    const { vehicle } = props.card || {};
+
     const classes = useStyles();
     const { card } = props || {};
-    console.log(card.vehicle , 'card')
     return (
         <Card className={classes.card}>
         <CardContent className={classes.noPadding}>
-          <Typography component="p" className={classes.title} >
-            {card.name}
-          </Typography>
-          <Typography  color="textSecondary" className={classes.address} gutterBottom>
-            {card.address}
-          </Typography>
-          <Typography className={classes.pos} component="h5">
-            {card.vehicle.mark}
-          </Typography>
-          <Typography variant="body2" component="p">
-          {card.vehicle.model}
-          </Typography>
-          <Typography variant="body2" component="p">
-          {card.vehicle.vehicle_id}
-          </Typography>
-          <Typography variant="body2" variant="h6" className={classes.reg}>
-          {card.vehicle.reg_num}
-          </Typography>
+          <Typography component="p" className={classes.title} >{card.name}</Typography>
+          <Typography  color="textSecondary" className={classes.address} gutterBottom>{card.address}</Typography>
+          <Typography className={classes.pos} component="h5">{vehicle.mark}</Typography>
+          <Typography variant="body2" component="p">{vehicle.model}</Typography>
+          <Typography variant="body2" component="p">{vehicle.vehicle_id}</Typography>
+          <Typography variant="h6" className={classes.reg}>{vehicle.reg_num}</Typography>
           <div className={classes.center}>
-            {card.vehicle.status ? (
+            {vehicle.status ? (
                     <span className="status status-avaliable">avaliable</span>
                 ) : (
                     <span className="status">Not Avaliable</span>
@@ -77,7 +65,21 @@ function MapCard(props) {
 }
 
 MapCard.propTypes = {
-
+  card : PropTypes.shape({
+    address : PropTypes.string.isRequired,
+    name : PropTypes.string.isRequired,
+    vehicle : PropTypes.shape({
+      lat : PropTypes.string.isRequired,
+      long : PropTypes.string.isRequired,
+      mark : PropTypes.string.isRequired,
+      model : PropTypes.string.isRequired,
+      reg_num : PropTypes.string.isRequired,
+      status : PropTypes.bool.isRequired,
+      user_id : PropTypes.number.isRequired,
+      vehicle_id : PropTypes.string.isRequired,
+      _id : PropTypes.number.isRequired
+    })
+  })
 }
 
 export default MapCard
