@@ -24,7 +24,7 @@ function TracingComponent(props) {
             dispatch(tracerConnect());
         }
         getCustomersData();
-    }, []);
+    }, [dispatch]);
 
     const { customers } = useSelector(state => state.tracerReducer);
     const { vehicles } = useSelector(state => state.tracerReducer);
