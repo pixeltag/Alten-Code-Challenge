@@ -12,7 +12,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 
 describe('renders correctly', () => {
-    const wrapper = mount( <ThemeProvider theme={{ success: { main: '#fff' } }}><Header /></ThemeProvider>)
+    const wrapper = shallow( <ThemeProvider theme={{ success: { main: '#fff' } }}><Header /></ThemeProvider>)
     it('Render correct' ,() => {
         expect(toJson(wrapper)).toMatchSnapshot();
     })
