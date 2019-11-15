@@ -27,28 +27,34 @@ export function getVehiclesNum(customersData) {
 
 // filter by customer IDs
 export function filterByCustomer(data , customers) {
-    if(customers && customers.length > 0) {
-        let filteredCustomers = data.filter(d => customers.includes(d._id))
-        return filteredCustomers;
+    if(data.length > 0 && typeof data == "object") {
+        if(customers && typeof customers == "object" && customers.length > 0 ) {
+            let filteredCustomers = data.filter(d => customers.includes(d._id))
+            return filteredCustomers;
+        }
+        return data;
     }
-    return data;
+    return false;
 }
 
 // filter by status
 export function filterByStatus(data , status) {
-    if(data && data.length > 0) {
-        let filteredVehicles = data.filter(d =>  {
-           return d.vehicles =  d.vehicles.filter(v => {
-               return v.status === status;
-           })
-        });
-        return filteredVehicles;
+    if(typeof status == "boolean") {
+        if(data && data.length > 0) {
+            let filteredVehicles = data.filter(d =>  {
+               return d.vehicles =  d.vehicles.filter(v => {
+                   return v.status === status;
+               })
+            });
+            return filteredVehicles;
+        }
     }
+    return data;
 }
 
 // Isolate the customer with each his own car in sparated object
 export function isolateVehicles(data) {
-    if(data && data.length > 0) {
+    if(data && data.length > 0 && typeof data == "object") {
         let returnData = [];
         data.map(d =>  d.vehicles.forEach(v => {
             returnData.push({ "name": d.name , "address": d.address , "vehicle" : v})
