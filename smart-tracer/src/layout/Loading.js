@@ -6,7 +6,7 @@ const Loading = () => {
     const { t } = useTranslation();
     return (
         <div className="splash-loading">
-            <div class="loading-icon">
+            <div className="loading-icon">
                 <img alt={t("loading")} src={logoSplash} />
                 <div>{t("loading")}</div>
             </div>

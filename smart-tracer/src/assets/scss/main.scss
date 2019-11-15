@@ -96,3 +96,20 @@ form {
           }
       }
   }
+
+  .sliding-out {
+    transform: translateX(-100%);
+    position: absolute;
+  }
+
+  .scroll-on {
+    padding: 20px;
+    height: calc(100vh - 66px);
+    overflow-y: auto;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .scroll-off {
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+  }

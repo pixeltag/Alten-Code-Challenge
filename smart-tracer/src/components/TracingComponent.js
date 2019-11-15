@@ -12,6 +12,8 @@ import StatusSwitcher from "./common/StatusSwitcher";
 import TracerMap from "./common/TracerMap";
 import { useTranslation } from 'react-i18next';
 import Loading from "../layout/Loading";
+import Button from '@material-ui/core/Button';
+import Map from "@material-ui/icons/Map";
 
 
 function TracingComponent(props) {
@@ -19,9 +21,7 @@ function TracingComponent(props) {
     const { t } = useTranslation();
     const [selectedCustomers , setSelectedCustomers] = useState([])
     const [vehiclesStatus , setvehiclesStatus] = useState(false)
-    const [mapWidth , setMapWidth] = useState(6)
-    const [gridWidth , setGridWidth] = useState(6)
-
+    const [mapWidth , setMapWidth] = useState(false);
     const dispatch = useDispatch();
     // get the updating data from the server
     useEffect(() => {
@@ -44,8 +44,7 @@ function TracingComponent(props) {
     }
 
     const handleOnCollapse = () => {
-        // setMapWidth(8);
-        // setGridWidth(4);
+        setMapWidth(!mapWidth);
     }
 
     let combine =  combineCustomersWithVehicles(customers, vehicles);
@@ -68,16 +67,21 @@ function TracingComponent(props) {
     const returnedData = customerFilter(combine);
     const numOfVehicles = getVehiclesNum(returnedData);
 
+    const mapClass = mapWidth ? "sliding-out" : "";
+    const gridClass = !mapWidth ? "scroll-on" : "scroll-off";
     return (
         <div>
             {
                 customers.length > 0 ? (
-                    <Grid container component="main" className={classes.root}>
+                    <Grid container component="main" className={classes.root} justify="center">
                         <CssBaseline />
-                                <Grid item xs={12} md={mapWidth}>
-                                    <TracerMap onCollapse={handleOnCollapse} customers={returnedData}/>
+                        <Button onClick={handleOnCollapse} variant="contained" size="small" color="secondary" className={classes.collapseBtn}>
+                        <Map />
+                            </Button>
+                                <Grid item xs={12} md={6} className={mapClass}>
+                                    <TracerMap customers={returnedData}/>
                                 </Grid>
-                                <Grid item xs={12} md={gridWidth} className={classes.tracingContainer}>
+                                <Grid item xs={12} md={6} className={gridClass}>
                                     <Grid container component="main" alignContent="flex-start" className={classes.root} spacing={4}>
                                         <Grid item xs={10}>
                                             <GridFilter customers={customers} onSelect={handleOnSelect} placeholder={t("SelectCustomer")}/>
@@ -111,7 +115,13 @@ const useStyles = makeStyles(theme => ({
     tracingContainer: {
         padding: theme.spacing(4),
         height: "calc(100vh - 66px)",
-        overflowY: "auto"
+        overflowY: "auto",
+    },
+    collapseBtn : {
+        position:'fixed',
+        zIndex: "9",
+        margin: "10px",
+        left: "0"
     },
     heading: {
         fontWeight: "600",
