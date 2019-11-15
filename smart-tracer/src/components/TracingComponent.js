@@ -11,7 +11,8 @@ import GridFilter from "./common/GridFilters";
 import StatusSwitcher from "./common/StatusSwitcher";
 import TracerMap from "./common/TracerMap";
 import { useTranslation } from 'react-i18next';
-import SnackbarContent from "@material-ui/core/SnackbarContent";
+import Loading from "../layout/Loading";
+
 
 function TracingComponent(props) {
     const classes = useStyles();
@@ -89,14 +90,7 @@ function TracingComponent(props) {
 
                     </Grid>
                 ) : (
-                    <SnackbarContent
-                    aria-describedby="client-snackbar"
-                    message={
-                        <span id="client-snackbar" className={classes.message}>
-                            {t("sorry")}
-                        </span>
-                    }
-                />
+                    <Loading />
                 )
             }
         </div>

@@ -76,3 +76,23 @@ form {
   .fullscreen-enabled main {
     background: #fff;
   }
+
+  .splash-loading {
+      position: fixed;
+      top: 0;
+      bottom:0;
+      right: 0;
+      left:0;
+      width: 100%;
+      background: #CC0941;
+      text-align: center;
+      color: #fff;
+      .loading-icon {
+          padding-top: calc(50vh - 80px);
+          img {
+            width: 230px;
+            height: 80px;
+            margin-bottom: 2em;
+          }
+      }
+  }

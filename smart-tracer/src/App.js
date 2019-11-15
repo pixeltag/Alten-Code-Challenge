@@ -13,9 +13,6 @@ function App() {
     setIsFull(!isFull);
   }
 
-
-
-
   return (
     <div>
        <Fullscreen enabled={isFull} onChange={ isFull => setIsFull(isFull) }>
