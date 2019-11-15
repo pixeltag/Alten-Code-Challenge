@@ -67,8 +67,8 @@ function TracingComponent(props) {
     const returnedData = customerFilter(combine);
     const numOfVehicles = getVehiclesNum(returnedData);
 
-    const mapClass = mapWidth ? "sliding-out" : "";
-    const gridClass = !mapWidth ? "scroll-on" : "scroll-off";
+    const mapClass = mapWidth ? classes.slidingOut : "";
+    const gridClass = !mapWidth ? classes.scrollOn : classes.scrollOff;
     return (
         <div>
             {
@@ -78,15 +78,15 @@ function TracingComponent(props) {
                         <Button onClick={handleOnCollapse} variant="contained" size="small" color="secondary" className={classes.collapseBtn}>
                         <Map />
                             </Button>
-                                <Grid item xs={12} md={6} className={mapClass}>
+                                <Grid item xs={12} sm={12} lg={5} className={mapClass}>
                                     <TracerMap customers={returnedData}/>
                                 </Grid>
-                                <Grid item xs={12} md={6} className={gridClass}>
+                                <Grid item xs={12} sm={12} lg={7} className={gridClass}>
                                     <Grid container component="main" alignContent="flex-start" className={classes.root} spacing={4}>
-                                        <Grid item xs={10}>
+                                        <Grid item xs={12} md={10}>
                                             <GridFilter customers={customers} onSelect={handleOnSelect} placeholder={t("SelectCustomer")}/>
                                         </Grid>
-                                        <Grid item xs={2}>
+                                        <Grid item xs={12} md={2}>
                                             <StatusSwitcher switchLabel={t("status")} onSwitch={handleSwitch} />
                                         </Grid>
                                         <Grid item xs={12}>
@@ -134,7 +134,29 @@ const useStyles = makeStyles(theme => ({
         verticalAlign: "middle",
         width: "1.2em",
         height: "1.2em"
+    },
+  slidingOut :  {
+    transform: "translateX(-100%)",
+    position: "absolute"
+  },
+  scrollOn: {
+    padding: "30px",
+    [theme.breakpoints.down('lg')]: {
+        height: "calc(100vh - 66px)",
+        overflowY: "auto",
+    },
+    [theme.breakpoints.down('md')]: {
+        padding:"16px",
+        height: "auto",
+        overflowY: "inherit",
     }
+  },
+  scrollOff : {
+    padding: "30px",
+    [theme.breakpoints.down('md')]: {
+        padding:"16px",
+    }
+  }
 }));
 
 export default TracingComponent;

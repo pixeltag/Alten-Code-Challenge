@@ -49,7 +49,10 @@ const useStyles = makeStyles(theme => ({
     },
     numOfCars: {
         textAlign: "right",
-        padding: theme.spacing(2)
+        padding: theme.spacing(2),
+        [theme.breakpoints.down('sm')]: {
+            textAlign: "left",
+        }
     },
     carText: {
         fontSize: "17px",

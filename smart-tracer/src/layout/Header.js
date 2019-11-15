@@ -34,6 +34,17 @@ const useStyles = makeStyles(theme => ({
   },
   toolbarTitle: {
     flexGrow: 1,
+    [theme.breakpoints.down('sm')]: {
+      width: "100%",
+      textAlign: "center",
+      padding: "15px"
+    }
+  },
+  navbar: {
+    [theme.breakpoints.down('sm')]: {
+      width: "100%",
+      textAlign: "center",
+    }
   },
   link: {
     margin: theme.spacing(1, 1.5),
@@ -80,7 +91,7 @@ export default function Header(props) {
           <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
             <img alt='Smart Tracer' className={classes.logo} src={logo} />
           </Typography>
-          <nav>
+          <nav className={classes.navbar}>
             <Button onClick={handleFullscreen} color="primary" variant="outlined" className={classes.link}>
               <Fullscreen className={classes.btnIcon} />
               {t('fullscreen')}
