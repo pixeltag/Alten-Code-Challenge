@@ -92,12 +92,12 @@ export default function Header(props) {
             <img alt='Smart Tracer' className={classes.logo} src={logo} />
           </Typography>
           <nav className={classes.navbar}>
-            <Button onClick={handleFullscreen} color="primary" variant="outlined" className={classes.link}>
+            <Button onClick={handleFullscreen} color="primary" data-cy-btn-fullscreen variant="outlined" className={classes.link}>
               <Fullscreen className={classes.btnIcon} />
               {t('fullscreen')}
             </Button>
             {lang === "en" ? (
-              <Button onClick={()=>handleLang('se')} color="primary" variant="outlined" className={classes.link}>
+              <Button onClick={()=>handleLang('se')} data-cy-btn-switcher color="primary" variant="outlined" className={classes.link}>
                 <Public className={classes.btnIcon} />
                 SE
               </Button>

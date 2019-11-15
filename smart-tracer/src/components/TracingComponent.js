@@ -91,7 +91,7 @@ function TracingComponent(props) {
                                         </Grid>
                                         <Grid item xs={12}>
                                             <DriveEtaIcon className={classes.carIcon} />
-                                            <span className={classes.heading}>{t("found")} {numOfVehicles} {t("vehicles")}</span>
+                                            <span className={classes.heading} data-cy-num-vehicles>{t("found")} {numOfVehicles} {t("vehicles")}</span>
                                         </Grid>
                                         <Grid item xs={12}>
                                             <GridView customers={returnedData} />
