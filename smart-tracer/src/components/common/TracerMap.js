@@ -16,10 +16,15 @@ const defaultProps = {
 
 function TracerMap(props) {
 
+    const handleCollapse = () => {
+        props.onCollapse();
+    }
+
     const { customers } = props || [];
     const mapData = isolateVehicles(customers);
     return (
         <div style={{ height: "calc(100vh - 66px)", width: '100%' }}>
+            {/* <button onClick={handleCollapse}></button> */}
             <GoogleMapReact
             bootstrapURLKeys={{ key: MAP_API }}
             defaultCenter={defaultProps.center}

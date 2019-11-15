@@ -19,6 +19,8 @@ function TracingComponent(props) {
     const { t } = useTranslation();
     const [selectedCustomers , setSelectedCustomers] = useState([])
     const [vehiclesStatus , setvehiclesStatus] = useState(false)
+    const [mapWidth , setMapWidth] = useState(6)
+    const [gridWidth , setGridWidth] = useState(6)
 
     const dispatch = useDispatch();
     // get the updating data from the server
@@ -39,6 +41,11 @@ function TracingComponent(props) {
     // handle on status changes
     const handleSwitch = event => {
         setvehiclesStatus(event)
+    }
+
+    const handleOnCollapse = () => {
+        // setMapWidth(8);
+        // setGridWidth(4);
     }
 
     let combine =  combineCustomersWithVehicles(customers, vehicles);
@@ -67,10 +74,10 @@ function TracingComponent(props) {
                 customers.length > 0 ? (
                     <Grid container component="main" className={classes.root}>
                         <CssBaseline />
-                                <Grid item xs={12} md={6}>
-                                    <TracerMap customers={returnedData}/>
+                                <Grid item xs={12} md={mapWidth}>
+                                    <TracerMap onCollapse={handleOnCollapse} customers={returnedData}/>
                                 </Grid>
-                                <Grid item xs={12} md={6} className={classes.tracingContainer}>
+                                <Grid item xs={12} md={gridWidth} className={classes.tracingContainer}>
                                     <Grid container component="main" alignContent="flex-start" className={classes.root} spacing={4}>
                                         <Grid item xs={10}>
                                             <GridFilter customers={customers} onSelect={handleOnSelect} placeholder={t("SelectCustomer")}/>
