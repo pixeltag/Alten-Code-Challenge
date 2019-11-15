@@ -9,6 +9,8 @@ import DriveEtaIcon from "@material-ui/icons/DriveEta";
 import SnackbarContent from "@material-ui/core/SnackbarContent";
 import TableView from "./TableView";
 import PropTypes from 'prop-types'
+import { useTranslation } from 'react-i18next';
+
 
 const useStyles = makeStyles(theme => ({
     customerContainer: {
@@ -57,7 +59,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function GridVIew(props) {
-
+    const { t } = useTranslation();
     const classes = useStyles();
     const { customers } = props || [];
     return (
@@ -68,7 +70,7 @@ function GridVIew(props) {
                         <Paper className={classes.customer}>
                             <Grid container component="main" className={classes.root}>
                                 <Grid item xs={12} md={8}>
-                                    <Avatar alt="Remy Sharp" src={img} className={classes.avatar} />
+                                    <Avatar alt={customer.name} src={img} className={classes.avatar} />
                                     <Typography variant="h6" className={classes.CustomerName}>
                                         {customer.name}
                                     </Typography>
@@ -78,7 +80,7 @@ function GridVIew(props) {
                                 </Grid>
                                 <Grid item xs={12} md={4} className={classes.numOfCars}>
                                     <DriveEtaIcon className={classes.carIcon} />
-                                    <span className={classes.carText}>{customer.vehicles.length} Vehicles</span>
+                                    <span className={classes.carText}>{customer.vehicles.length} {t("vehicles")}</span>
                                 </Grid>
                             </Grid>
                         </Paper>
@@ -90,7 +92,7 @@ function GridVIew(props) {
                     aria-describedby="client-snackbar"
                     message={
                         <span id="client-snackbar" className={classes.message}>
-                            Sorry , We didn't found any data
+                            {t("sorry")}
                         </span>
                     }
                 />

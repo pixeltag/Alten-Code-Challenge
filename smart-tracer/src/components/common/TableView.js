@@ -6,22 +6,23 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import { useTranslation } from 'react-i18next';
 
 function TableView(props) {
-
+    const { t } = useTranslation();
     const { vehicles } = props || [];
 
     return (
         <div>
             <Paper>
-                <Table aria-label="simple table">
+                <Table>
                     <TableHead>
                         <TableRow>
-                            <TableCell>mark</TableCell>
-                            <TableCell align="right">Model</TableCell>
-                            <TableCell align="right">Vehicle ID</TableCell>
-                            <TableCell align="right">Reg Num</TableCell>
-                            <TableCell align="right">Status</TableCell>
+                            <TableCell>{t("mark")}</TableCell>
+                            <TableCell align="right">{t("model")}</TableCell>
+                            <TableCell align="right">{t("vehicleId")}</TableCell>
+                            <TableCell align="right">{t("regNum")}</TableCell>
+                            <TableCell align="right">{t("status")}</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -35,9 +36,9 @@ function TableView(props) {
                                 <TableCell align="right">{vehicle.reg_num}</TableCell>
                                 <TableCell align="right">
                                     {vehicle.status ? (
-                                        <span className="status status-avaliable">avaliable</span>
+                                        <span className="status status-avaliable">{t("avaliable")}</span>
                                     ) : (
-                                        <span className="status">Not Avaliable</span>
+                                        <span className="status">{t("notAvaliable")}</span>
                                     )}
                                 </TableCell>
                             </TableRow>

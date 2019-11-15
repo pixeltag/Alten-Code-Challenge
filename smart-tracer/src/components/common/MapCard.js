@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles(theme => ({
     card: {
@@ -38,6 +39,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function MapCard(props) {
+    const { t } = useTranslation();
 
     const { vehicle } = props.card || {};
 
@@ -54,9 +56,9 @@ function MapCard(props) {
           <Typography variant="h6" className={classes.reg}>{vehicle.reg_num}</Typography>
           <div className={classes.center}>
             {vehicle.status ? (
-                    <span className="status status-avaliable">avaliable</span>
+                <span className="status status-avaliable">{t("avaliable")}</span>
                 ) : (
-                    <span className="status">Not Avaliable</span>
+                    <span className="status">{t("notAvaliable")}</span>
                 )}
           </div>
         </CardContent>

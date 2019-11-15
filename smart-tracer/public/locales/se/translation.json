@@ -1,0 +1,15 @@
+{
+    "fullscreen": "Fullskärm",
+    "SelectCustomer": "Välj kund",
+    "loading": "Läser in ..",
+    "vehicles": "fordon",
+    "sorry": "Tyvärr, vi hittade inga data!",
+    "avaliable": "Tillgängliga",
+    "notAvaliable": "Inte tillgänglig",
+    "status": "Status",
+    "mark": "Mark",
+    "model": "modell",
+    "vehicleId": "Fordons-ID",
+    "regNum": "Registreringsnummer",
+    "found": "hittades"
+}

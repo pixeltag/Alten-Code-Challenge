@@ -1,15 +1,18 @@
-import React from "react";
+import React , { Suspense } from "react";
 import ReactDOM from "react-dom";
 import "./assets/scss/main.scss";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import store from "./store";
 import { Provider } from "react-redux";
+import "./translate/i18next";
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
+    <Suspense fallback={(<div>loading ...</div>)}>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </Suspense>,
     document.getElementById("root")
 );
 

@@ -10,10 +10,12 @@ import DriveEtaIcon from "@material-ui/icons/DriveEta";
 import GridFilter from "./common/GridFilters";
 import StatusSwitcher from "./common/StatusSwitcher";
 import TracerMap from "./common/TracerMap";
+import { useTranslation } from 'react-i18next';
+import SnackbarContent from "@material-ui/core/SnackbarContent";
 
 function TracingComponent(props) {
     const classes = useStyles();
-
+    const { t } = useTranslation();
     const [selectedCustomers , setSelectedCustomers] = useState([])
     const [vehiclesStatus , setvehiclesStatus] = useState(false)
 
@@ -70,14 +72,14 @@ function TracingComponent(props) {
                                 <Grid item xs={12} md={6} className={classes.tracingContainer}>
                                     <Grid container component="main" alignContent="flex-start" className={classes.root} spacing={4}>
                                         <Grid item xs={10}>
-                                            <GridFilter customers={customers} onSelect={handleOnSelect} placeholder="Select Customer"/>
+                                            <GridFilter customers={customers} onSelect={handleOnSelect} placeholder={t("SelectCustomer")}/>
                                         </Grid>
                                         <Grid item xs={2}>
-                                            <StatusSwitcher switchLabel="Status" onSwitch={handleSwitch} />
+                                            <StatusSwitcher switchLabel={t("status")} onSwitch={handleSwitch} />
                                         </Grid>
                                         <Grid item xs={12}>
                                             <DriveEtaIcon className={classes.carIcon} />
-                                            <span className={classes.heading}>Found {numOfVehicles} Vehicles</span>
+                                            <span className={classes.heading}>{t("found")} {numOfVehicles} {t("vehicles")}</span>
                                         </Grid>
                                         <Grid item xs={12}>
                                             <GridView customers={returnedData} />
@@ -87,7 +89,14 @@ function TracingComponent(props) {
 
                     </Grid>
                 ) : (
-                    <span>no data</span>
+                    <SnackbarContent
+                    aria-describedby="client-snackbar"
+                    message={
+                        <span id="client-snackbar" className={classes.message}>
+                            {t("sorry")}
+                        </span>
+                    }
+                />
                 )
             }
         </div>

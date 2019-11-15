@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import FormControl from "@material-ui/core/FormControl";
 import Select from 'react-select';
 import PropTypes from 'prop-types'
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles(theme => ({
     formControl: {
@@ -11,10 +12,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function GridFilter(props) {
-
+    const { t } = useTranslation();
     const classes = useStyles();
     const { customers } = props || {};
-    const { placeholder } = props || 'Select Customer'
+    const { placeholder } = props || t('selectCustomer')
         let options = [];
         customers.forEach(customer => {
             options.push({
@@ -43,7 +44,7 @@ function GridFilter(props) {
                             />
 
                 ) : (
-                    <div>loading</div>
+                    <div>{t('loading')}</div>
                 ) }
             </FormControl>
         </div>

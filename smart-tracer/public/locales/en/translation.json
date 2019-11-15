@@ -1,0 +1,15 @@
+{
+    "fullscreen": "Fullscreen",
+    "SelectCustomer": "Select Customer",
+    "loading": "Loading ..",
+    "vehicles": "Vehicles",
+    "sorry": "Sorry , We didn't found any data!",
+    "avaliable": "Avaliable",
+    "notAvaliable": "Not Avaliable",
+    "status": "Status",
+    "mark": "Mark",
+    "model": "Model",
+    "vehicleId": "Vehicle ID",
+    "regNum": "Reg Num",
+    "found": "Found"
+}

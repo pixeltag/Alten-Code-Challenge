@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -8,6 +8,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import logo from '../assets/svg/logo.svg';
 import Public from '@material-ui/icons/Public'
 import Fullscreen from '@material-ui/icons/Fullscreen'
+import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
+
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -56,8 +59,16 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Header() {
+  const [lang , setLang] = useState('en')
+
+  const { t } = useTranslation();
 
   const classes = useStyles();
+
+  const handleLang = lang => {
+    i18next.changeLanguage(lang);
+    setLang(lang);
+  }
 
   return (
     <React.Fragment>
@@ -70,15 +81,22 @@ export default function Header() {
           <nav>
             <Button href="#" color="primary" variant="outlined" className={classes.link}>
               <Fullscreen className={classes.btnIcon} />
-              Full Screen
+              {t('fullscreen')}
             </Button>
-            <Button href="#" color="primary" variant="outlined" className={classes.link}>
+            {lang === "en" ? (
+              <Button onClick={()=>handleLang('se')} color="primary" variant="outlined" className={classes.link}>
+                <Public className={classes.btnIcon} />
+                SE
+              </Button>
+            ) : (
+            <Button onClick={()=>handleLang('en')} color="primary" variant="outlined" className={classes.link}>
               <Public className={classes.btnIcon} />
-              SE
+              EN
             </Button>
+            )}
           </nav>
         </Toolbar>
-      </AppBar> 
+      </AppBar>
     </React.Fragment>
   );
 }

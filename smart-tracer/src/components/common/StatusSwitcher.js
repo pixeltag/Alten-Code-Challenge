@@ -3,11 +3,12 @@ import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import PropTypes from 'prop-types'
+import { useTranslation } from 'react-i18next';
 
 function StatusSwitcher(props) {
-
+    const { t } = useTranslation();
     const [state, setState] = React.useState(false);
-        const { switchLabel } = props || "Status";
+        const { switchLabel } = props || t("status");
       const handleChange = event => {
           let switcher = !state;
           setState(switcher);
