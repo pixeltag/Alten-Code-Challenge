@@ -58,16 +58,18 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-export default function Header() {
+export default function Header(props) {
   const [lang , setLang] = useState('en')
-
   const { t } = useTranslation();
-
   const classes = useStyles();
 
   const handleLang = lang => {
     i18next.changeLanguage(lang);
     setLang(lang);
+  }
+
+  const handleFullscreen = () => {
+    props.onFullscreen();
   }
 
   return (
@@ -79,7 +81,7 @@ export default function Header() {
             <img alt='Smart Tracer' className={classes.logo} src={logo} />
           </Typography>
           <nav>
-            <Button href="#" color="primary" variant="outlined" className={classes.link}>
+            <Button onClick={handleFullscreen} color="primary" variant="outlined" className={classes.link}>
               <Fullscreen className={classes.btnIcon} />
               {t('fullscreen')}
             </Button>

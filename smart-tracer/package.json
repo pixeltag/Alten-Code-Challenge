@@ -12,6 +12,7 @@
     "node-sass": "^4.13.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-full-screen": "^0.2.4",
     "react-i18next": "^11.2.1",
     "react-localization": "^1.0.15",
     "react-redux": "^7.1.3",
