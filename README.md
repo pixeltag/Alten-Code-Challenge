@@ -44,5 +44,5 @@ Using the terminal navigate to `smart-tracer` folder and install the node packag
 `npm test`
 
 <h3>Cypress</h3>
-`npm run cypress`
+<code>npm run cypress</code>
 
