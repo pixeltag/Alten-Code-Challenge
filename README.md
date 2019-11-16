@@ -3,7 +3,7 @@
 <a href="https://ibb.co/fkS2xfd"><img src="https://i.ibb.co/dPcr5F4/Smart-Tracer-Home-00.jpg" alt="Smart-Tracer-Home-00" border="0"></a>
 
 <h2>Scenario</h2>
-Imagine you are an Alten Frontend consultant and you got assigned to a project at one of our top partners.
+Imagine you are an Frontend consultant and you got assigned to a project at one of our top partners.
 They have a number of connected vehicles that belongs to a number of customers.
 They have a need to be able to view the status of the connection among these vehicles on a monitoring display.
 The vehicles send the status of the connection one time per minute.
