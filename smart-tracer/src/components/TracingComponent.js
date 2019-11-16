@@ -43,20 +43,25 @@ function TracingComponent(props) {
         setvehiclesStatus(event)
     }
 
+    // handle the map collapse or expand
     const handleOnCollapse = () => {
         setMapWidth(!mapWidth);
     }
 
+    // get the combined data form customers and vehicles
     let combine =  combineCustomersWithVehicles(customers, vehicles);
 
+    // it's return the filtered data
     const customerFilter = (data) => {
 
         let updatedCustomers = data;
 
+        // if specific customer is selected
         if(selectedCustomers.length > 0) {
             updatedCustomers = filterByCustomer(updatedCustomers , selectedCustomers);
         }
 
+        // if status is changed
         if(vehiclesStatus) {
             updatedCustomers = filterByStatus(updatedCustomers , vehiclesStatus);
         }
@@ -67,8 +72,10 @@ function TracingComponent(props) {
     const returnedData = customerFilter(combine);
     const numOfVehicles = getVehiclesNum(returnedData);
 
+    // get classes for map and the grid
     const mapClass = mapWidth ? classes.slidingOut : "";
     const gridClass = !mapWidth ? classes.scrollOn : classes.scrollOff;
+
     return (
         <div>
             {

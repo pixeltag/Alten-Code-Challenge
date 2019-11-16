@@ -9,6 +9,7 @@ import Fullscreen from "react-full-screen";
 function App() {
   const [ isFull , setIsFull ] = useState(false);
 
+  // go fullscreen
   const goFull = () => {
     setIsFull(!isFull);
   }

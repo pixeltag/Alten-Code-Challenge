@@ -74,11 +74,13 @@ export default function Header(props) {
   const { t } = useTranslation();
   const classes = useStyles();
 
+  // handle the language func
   const handleLang = lang => {
     i18next.changeLanguage(lang);
     setLang(lang);
   }
 
+  // handle the fullscreen func
   const handleFullscreen = () => {
     props.onFullscreen();
   }

@@ -1,3 +1,5 @@
+// func for combine the customers array with the vehicls array based on `user_id` property
+// it is accepting the customers and the vehicls array
 export function combineCustomersWithVehicles(customers, vehicles) {
     if (customers && customers.length > 0 && vehicles && vehicles.length > 0) {
         let merged = [];
@@ -12,6 +14,8 @@ export function combineCustomersWithVehicles(customers, vehicles) {
     return;
 }
 
+// func to get the number of existing vehicles
+// it is accepting the combined array of customers and its vehicles
 export function getVehiclesNum(customersData) {
     if (customersData && customersData.length > 0) {
         let vehicleNum = 0;
@@ -25,7 +29,8 @@ export function getVehiclesNum(customersData) {
     return 0;
 }
 
-// filter by customer IDs
+// func to filter the combined array by specific customer or multi customers
+// it's accepting the whole data array and the second arrg is array of selected ID
 export function filterByCustomer(data , customers) {
     if(data.length > 0 && typeof data == "object") {
         if(customers && typeof customers == "object" && customers.length > 0 ) {
@@ -37,7 +42,8 @@ export function filterByCustomer(data , customers) {
     return false;
 }
 
-// filter by status
+//  func to filter the combined array by specific vehicles status
+// it's accepting the whole data and the second arrg is bool
 export function filterByStatus(data , status) {
     if(typeof status == "boolean") {
         if(data && data.length > 0) {
@@ -52,7 +58,8 @@ export function filterByStatus(data , status) {
     return data;
 }
 
-// Isolate the customer with each his own car in sparated object
+// func to isolate the customer with each his own vehicles in sparated object
+// it's accepting the whole combined array
 export function isolateVehicles(data) {
     if(data && data.length > 0 && typeof data == "object") {
         let returnData = [];
