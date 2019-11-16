@@ -35,13 +35,13 @@ It contain the EPS folder for logo files sources used Adobe Illustrator ,  IMG u
 
 <h2>Getting start</h2>
 <h3>Back-end Server</h3>
-Run the back-end from the terminal , navigate to server folder and then install the node packages `npm install` then run the app `npm run start`;
+Run the back-end from the terminal , navigate to <b>server</b> folder and then install the node packages <code>npm install</code> then run the app <code>npm run start</code>;
 
 <h3>Front-end React App<h3>
-Using the terminal navigate to `smart-tracer` folder and install the node packages `npm install` then run `npm start`
+Using the terminal navigate to <b>smart-tracer</b> folder and install the node packages <code>npm install</code> then run <code>npm start</code>
 
 <h3>Jest</h3>
-`npm test`
+<code>npm test</code>
 
 <h3>Cypress</h3>
 <code>npm run cypress</code>
